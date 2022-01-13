@@ -1,0 +1,67 @@
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline --graph
+* be407a1 (HEAD -> master) Revert "added readme file"
+*   4b540be (mybranch) Merge branch 'greeting'
+|\
+| * e8ea9a9 (greeting) changed greeting in branch greeting
+* | 7b2c337 added readme file
+|/
+*   e4fc60f Merge branch 'feature/uppercase'
+|\
+| * ba97d88 greeting commit 1
+| * 67d5dbf file1 commit 1
+* | ce2f4a7 file2 commit 1
+|/
+* aaa11b4 file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git reflog
+be407a1 (HEAD -> master) HEAD@{0}: commit (amend): Revert "added readme file"
+91d5361 HEAD@{1}: commit (amend): Revert "added readme file"
+af506aa HEAD@{2}: revert: Revert "added readme file"
+4b540be (mybranch) HEAD@{3}: reset: moving to HEAD~1
+18063ff HEAD@{4}: reset: moving to HEAD~1
+c9fe36b HEAD@{5}: reset: moving to HEAD~1
+7d94738 HEAD@{6}: revert: Revert "Revert "greeting.txt changed to hello world""
+c9fe36b HEAD@{7}: revert: Revert "greeting.txt changed to hello world"
+18063ff HEAD@{8}: commit: greeting.txt changed to hello world
+4b540be (mybranch) HEAD@{9}: checkout: moving from mybranch to master
+4b540be (mybranch) HEAD@{10}: rebase (finish): returning to refs/heads/mybranch
+4b540be (mybranch) HEAD@{11}: rebase (start): checkout master
+67d5dbf HEAD@{12}: checkout: moving from master to mybranch
+4b540be (mybranch) HEAD@{13}: merge greeting: Merge made by the 'ort' strategy.
+7b2c337 HEAD@{14}: commit: added readme file
+e4fc60f HEAD@{15}: checkout: moving from greeting to master
+e8ea9a9 (greeting) HEAD@{16}: commit: changed greeting in branch greeting
+e4fc60f HEAD@{17}: checkout: moving from master to greeting
+e4fc60f HEAD@{18}: merge feature/uppercase: Merge made by the 'ort' strategy.
+ce2f4a7 HEAD@{19}: checkout: moving from feature/uppercase to master
+ba97d88 HEAD@{20}: commit: greeting commit 1
+67d5dbf HEAD@{21}: checkout: moving from mybranch to feature/uppercase
+67d5dbf HEAD@{22}: checkout: moving from master to mybranch
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git rebase -i HEAD
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/rebase-merge/git-rebase-todo to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/rebase-merge/git-rebase-todo to Unix format...
+Successfully rebased and updated refs/heads/master.
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git rebase -i HEAD~5
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/rebase-merge/git-rebase-todo to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/rebase-merge/git-rebase-todo to Unix format...
+Successfully rebased and updated refs/heads/master.
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline --graph
+* 77af18c (HEAD -> master) Revert "added readme file"
+* c632823 changed greeting in branch greeting
+* b348818 added readme file
+* 3da6cb6 file1 commit 1
+* ff9a025 greeting commit 1
+* ce2f4a7 file2 commit 1
+* aaa11b4 file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit

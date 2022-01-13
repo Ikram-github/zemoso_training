@@ -1,0 +1,127 @@
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --oneline
+7d94738 (HEAD -> master) Revert "Revert "greeting.txt changed to hello world""
+c9fe36b Revert "greeting.txt changed to hello world"
+18063ff greeting.txt changed to hello world
+4b540be (mybranch) Merge branch 'greeting'
+7b2c337 added readme file
+e8ea9a9 (greeting) changed greeting in branch greeting
+e4fc60f Merge branch 'feature/uppercase'
+ba97d88 greeting commit 1
+ce2f4a7 file2 commit 1
+67d5dbf file1 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --oneline --staged
+fatal: unrecognized argument: --staged
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --oneline --stagged
+fatal: unrecognized argument: --stagged
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git reset --soft HEAD~1
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+README.md  file.txt  file1.txt  file2.txt  greeting.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --oneline
+c9fe36b (HEAD -> master) Revert "greeting.txt changed to hello world"
+18063ff greeting.txt changed to hello world
+4b540be (mybranch) Merge branch 'greeting'
+7b2c337 added readme file
+e8ea9a9 (greeting) changed greeting in branch greeting
+e4fc60f Merge branch 'feature/uppercase'
+ba97d88 greeting commit 1
+ce2f4a7 file2 commit 1
+67d5dbf file1 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --staged
+fatal: unrecognized argument: --staged
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git reset --mixed HEAD~1
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+README.md  file.txt  file1.txt  file2.txt  greeting.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --oneline
+18063ff (HEAD -> master) greeting.txt changed to hello world
+4b540be (mybranch) Merge branch 'greeting'
+7b2c337 added readme file
+e8ea9a9 (greeting) changed greeting in branch greeting
+e4fc60f Merge branch 'feature/uppercase'
+ba97d88 greeting commit 1
+ce2f4a7 file2 commit 1
+67d5dbf file1 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git reset --hard HEAD~1
+HEAD is now at 4b540be Merge branch 'greeting'
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+README.md  file.txt  file1.txt  file2.txt  greeting.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --oneline
+4b540be (HEAD -> master, mybranch) Merge branch 'greeting'
+7b2c337 added readme file
+e8ea9a9 (greeting) changed greeting in branch greeting
+e4fc60f Merge branch 'feature/uppercase'
+ba97d88 greeting commit 1
+ce2f4a7 file2 commit 1
+67d5dbf file1 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git revert HEAD~1
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to Unix format...
+[master af506aa] Revert "added readme file"
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 README.md
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+file.txt  file1.txt  file2.txt  greeting.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --oneline
+af506aa (HEAD -> master) Revert "added readme file"
+4b540be (mybranch) Merge branch 'greeting'
+7b2c337 added readme file
+e8ea9a9 (greeting) changed greeting in branch greeting
+e4fc60f Merge branch 'feature/uppercase'
+ba97d88 greeting commit 1
+ce2f4a7 file2 commit 1
+67d5dbf file1 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit

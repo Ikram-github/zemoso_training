@@ -1,0 +1,95 @@
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git branch feature/uppercase
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git switch feature/uppercase
+Switched to branch 'feature/uppercase'
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (feature/uppercase)
+$ git status
+On branch feature/uppercase
+nothing to commit, working tree clean
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (feature/uppercase)
+$ echo "GREETING" > greeting.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (feature/uppercase)
+$ git add greeting.txt
+warning: LF will be replaced by CRLF in greeting.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (feature/uppercase)
+$ git commit -m "greeting commit 1"
+[feature/uppercase ba97d88] greeting commit 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 greeting.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (feature/uppercase)
+$ git branch
+* feature/uppercase
+  master
+  mybranch
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (feature/uppercase)
+$ git log --oneline --graph --all
+* ba97d88 (HEAD -> feature/uppercase) greeting commit 1
+* 67d5dbf (mybranch) file1 commit 1
+| * ce2f4a7 (master) file2 commit 1
+|/
+* aaa11b4 file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (feature/uppercase)
+$ git switch master
+Switched to branch 'master'
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git diff feature/uppercase master
+diff --git a/file1.txt b/file1.txt
+deleted file mode 100644
+index c17e866..0000000
+--- a/file1.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-ikram
+diff --git a/file2.txt b/file2.txt
+new file mode 100644
+index 0000000..954e2af
+--- /dev/null
++++ b/file2.txt
+@@ -0,0 +1 @@
++ikram in file2
+diff --git a/greeting.txt b/greeting.txt
+deleted file mode 100644
+index 1e4307a..0000000
+--- a/greeting.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-GREETING
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git merge master feature/uppercase
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/MERGE_MSG to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/MERGE_MSG to Unix format...
+Merge made by the 'ort' strategy.
+ file1.txt    | 1 +
+ greeting.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file1.txt
+ create mode 100644 greeting.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ cat greeting.txt
+GREETING
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git branch -d feature/uppercase
+Deleted branch feature/uppercase (was ba97d88).
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+file.txt  file1.txt  file2.txt  greeting.txt  hello.txt

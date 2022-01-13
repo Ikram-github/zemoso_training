@@ -1,0 +1,100 @@
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git branch
+* master
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git branch mybranch
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git branch
+* master
+  mybranch
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git switch mybranch
+Switched to branch 'mybranch'
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git status
+On branch mybranch
+nothing to commit, working tree clean
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ echo "ikram" >file1.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git add file1.txt
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git commit -m "file1 commit 1"
+[mybranch 67d5dbf] file1 commit 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git log --oneline --graph
+* 67d5dbf (HEAD -> mybranch) file1 commit 1
+* aaa11b4 (master) file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git switch master
+Switched to branch 'master'
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline --graph
+* aaa11b4 (HEAD -> master) file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "ikram in file2" >file2.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add file2.txt
+warning: LF will be replaced by CRLF in file2.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "file2 commit 1"
+[master ce2f4a7] file2 commit 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline --graph --all
+* ce2f4a7 (HEAD -> master) file2 commit 1
+| * 67d5dbf (mybranch) file1 commit 1
+|/
+* aaa11b4 file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git switch mybranch
+Switched to branch 'mybranch'
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ ls
+file.txt  file1.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git diff mybranch master
+diff --git a/file1.txt b/file1.txt
+deleted file mode 100644
+index c17e866..0000000
+--- a/file1.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-ikram
+diff --git a/file2.txt b/file2.txt
+new file mode 100644
+index 0000000..954e2af
+--- /dev/null
++++ b/file2.txt
+@@ -0,0 +1 @@
++ikram in file2
+

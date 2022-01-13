@@ -1,0 +1,130 @@
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log
+fatal: your current branch 'master' does not have any commits yet
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "hello world" > hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add hello .txt
+fatal: pathspec 'hello' did not match any files
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add hello.txt
+warning: LF will be replaced by CRLF in hello.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   hello.txt
+
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "hello world ! love git">hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   hello.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hello.txt
+
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add hello.txt
+warning: LF will be replaced by CRLF in hello.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   hello.txt
+
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "first commit"
+[master (root-commit) ed669b4] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "hello world" > hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   hello.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add hello.txt
+warning: LF will be replaced by CRLF in hello.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "second commit"
+[master cd8005b] second commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log
+commit cd8005b854c307a6ba0027225dbedd8307fbd327 (HEAD -> master)
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 09:22:48 2022 +0530
+
+    second commit
+
+commit ed669b44a08ad669aac0f60e74eae30fc08a6987
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 09:22:11 2022 +0530
+
+    first commit
+
+

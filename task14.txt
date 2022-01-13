@@ -1,0 +1,111 @@
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+bar.txt  file.txt  file1.txt  file2.txt  greeting.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "1">change.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add -A
+warning: LF will be replaced by CRLF in change.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "change 1"
+[master 1aaf2d4] change 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 change.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "2">change.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add -A
+warning: LF will be replaced by CRLF in change.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "change 2"
+[master 5cfc697] change 2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "3">change.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add -A
+warning: LF will be replaced by CRLF in change.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "change 3"
+[master 9dd56a9] change 3
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "4">change.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add -A
+warning: LF will be replaced by CRLF in change.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "change 4"
+[master e800be6] change 4
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "5">change.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add -A
+warning: LF will be replaced by CRLF in change.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "change 5"
+[master 127cea3] change 5
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline
+127cea3 (HEAD -> master) change 5
+e800be6 change 4
+9dd56a9 change 3
+5cfc697 change 2
+1aaf2d4 change 1
+77af18c Revert "added readme file"
+c632823 changed greeting in branch greeting
+b348818 added readme file
+3da6cb6 file1 commit 1
+ff9a025 greeting commit 1
+ce2f4a7 file2 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git rebase -i HEAD~5
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/rebase-merge/git-rebase-todo to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/rebase-merge/git-rebase-todo to Unix format...
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to Unix format...
+[detached HEAD f34d19a] change 1
+ Date: Thu Jan 13 10:39:33 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 change.txt
+Successfully rebased and updated refs/heads/master.
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline
+f34d19a (HEAD -> master) change 1
+77af18c Revert "added readme file"
+c632823 changed greeting in branch greeting
+b348818 added readme file
+3da6cb6 file1 commit 1
+ff9a025 greeting commit 1
+ce2f4a7 file2 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit

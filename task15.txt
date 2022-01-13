@@ -1,0 +1,126 @@
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "6">change.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add -A
+warning: LF will be replaced by CRLF in change.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "change 6"
+[master 32d5490] change 6
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git rebase -i HEAD~5
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/rebase-merge/git-rebase-todo to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/rebase-merge/git-rebase-todo to Unix format...
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to Unix format...
+[detached HEAD 7fcd0ae] change to 6
+ Date: Thu Jan 13 10:43:09 2022 +0530
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/master.
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline
+7fcd0ae (HEAD -> master) change to 6
+f34d19a change 1
+77af18c Revert "added readme file"
+c632823 changed greeting in branch greeting
+b348818 added readme file
+3da6cb6 file1 commit 1
+ff9a025 greeting commit 1
+ce2f4a7 file2 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git rebase -i HEAD~5
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/rebase-merge/git-rebase-todo to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/rebase-merge/git-rebase-todo to Unix format...
+Successfully rebased and updated refs/heads/master.
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline
+f34d19a (HEAD -> master) change 1
+77af18c Revert "added readme file"
+c632823 changed greeting in branch greeting
+b348818 added readme file
+3da6cb6 file1 commit 1
+ff9a025 greeting commit 1
+ce2f4a7 file2 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --stat
+commit f34d19abc1ea4b2c7f3ba61f6c3978de784e6b92 (HEAD -> master)
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 10:39:33 2022 +0530
+
+    change 1
+
+    change 2
+
+    change 3
+
+    change 4
+
+    change 5
+
+ change.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 77af18cf7d81d81c03b4b759262483cf8dde0d0b
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 10:17:18 2022 +0530
+
+    Revert "added readme file"
+
+    This reverts commit 7b2c337eee04a5ffa0b9f750253ab2f5c657b508.
+
+ README.md | 1 -
+ bar.txt   | 1 +
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --patch
+commit f34d19abc1ea4b2c7f3ba61f6c3978de784e6b92 (HEAD -> master)
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 10:39:33 2022 +0530
+
+    change 1
+
+    change 2
+
+    change 3
+
+    change 4
+
+    change 5
+
+diff --git a/change.txt b/change.txt
+new file mode 100644
+index 0000000..7ed6ff8
+--- /dev/null
++++ b/change.txt
+@@ -0,0 +1 @@
++5
+
+commit 77af18cf7d81d81c03b4b759262483cf8dde0d0b
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 10:17:18 2022 +0530
+
+    Revert "added readme file"
+
+    This reverts commit 7b2c337eee04a5ffa0b9f750253ab2f5c657b508.
+
+diff --git a/README.md b/README.md
+deleted file mode 100644
+index 87ad1c8..0000000
+--- a/README.md

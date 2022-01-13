@@ -1,0 +1,98 @@
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git branch greeting
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git checkout greeting
+Switched to branch 'greeting'
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (greeting)
+$ ls
+file.txt  file1.txt  file2.txt  greeting.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (greeting)
+$ echo "hello , how are you?">greeting.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (greeting)
+$ git add greeting.txt
+warning: LF will be replaced by CRLF in greeting.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (greeting)
+$ git commit -m "changed greeting in branch greeting"
+[greeting e8ea9a9] changed greeting in branch greeting
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (greeting)
+$ git switch master
+Switched to branch 'master'
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ vi README.md
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add README.md
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "added readme file"
+[master 7b2c337] added readme file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline --graph --all
+* 7b2c337 (HEAD -> master) added readme file
+| * e8ea9a9 (greeting) changed greeting in branch greeting
+|/
+*   e4fc60f Merge branch 'feature/uppercase'
+|\
+| * ba97d88 greeting commit 1
+| * 67d5dbf (mybranch) file1 commit 1
+* | ce2f4a7 file2 commit 1
+|/
+* aaa11b4 file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git diff greeting master
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..87ad1c8
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++This repo is about practice
+diff --git a/greeting.txt b/greeting.txt
+index b74dca3..1e4307a 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +1 @@
+-hello , how are you?
++GREETING
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git merge greeting master
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/MERGE_MSG to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/MERGE_MSG to Unix format...
+Merge made by the 'ort' strategy.
+ greeting.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline --graph --all
+*   4b540be (HEAD -> master) Merge branch 'greeting'
+|\
+| * e8ea9a9 (greeting) changed greeting in branch greeting
+* | 7b2c337 added readme file
+|/
+*   e4fc60f Merge branch 'feature/uppercase'
+|\
+| * ba97d88 greeting commit 1
+| * 67d5dbf (mybranch) file1 commit 1
+* | ce2f4a7 file2 commit 1
+|/
+* aaa11b4 file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit

@@ -1,0 +1,164 @@
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --online
+fatal: unrecognized argument: --online
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --oneline
+4b540be (HEAD -> master, mybranch) Merge branch 'greeting'
+7b2c337 added readme file
+e8ea9a9 (greeting) changed greeting in branch greeting
+e4fc60f Merge branch 'feature/uppercase'
+ba97d88 greeting commit 1
+ce2f4a7 file2 commit 1
+67d5dbf file1 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ cat greeting.txt
+hello , how are you?
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git revert 4b540be
+error: commit 4b540be1559376ca71282442a7109246b996e2c9 is a merge but no -m option was given.
+fatal: revert failed
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "hello world" > greeting.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ cat greeting.txt
+hello world
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add greeting.txt
+warning: LF will be replaced by CRLF in greeting.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "greeting.txt changed to hello world"
+[master 18063ff] greeting.txt changed to hello world
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --oneline
+18063ff (HEAD -> master) greeting.txt changed to hello world
+4b540be (mybranch) Merge branch 'greeting'
+7b2c337 added readme file
+e8ea9a9 (greeting) changed greeting in branch greeting
+e4fc60f Merge branch 'feature/uppercase'
+ba97d88 greeting commit 1
+ce2f4a7 file2 commit 1
+67d5dbf file1 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git revert 4b540be4b540be
+fatal: bad revision '4b540be4b540be'
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git revert 18063ff
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to Unix format...
+[master c9fe36b] Revert "greeting.txt changed to hello world"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ cat greeting.txt
+hello , how are you?
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+README.md  file.txt  file1.txt  file2.txt  greeting.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --oneline
+c9fe36b (HEAD -> master) Revert "greeting.txt changed to hello world"
+18063ff greeting.txt changed to hello world
+4b540be (mybranch) Merge branch 'greeting'
+7b2c337 added readme file
+e8ea9a9 (greeting) changed greeting in branch greeting
+e4fc60f Merge branch 'feature/uppercase'
+ba97d88 greeting commit 1
+ce2f4a7 file2 commit 1
+67d5dbf file1 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git revert c9fe36b
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to Unix format...
+[master 7d94738] Revert "Revert "greeting.txt changed to hello world""
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --decorate --oneline
+7d94738 (HEAD -> master) Revert "Revert "greeting.txt changed to hello world""
+c9fe36b Revert "greeting.txt changed to hello world"
+18063ff greeting.txt changed to hello world
+4b540be (mybranch) Merge branch 'greeting'
+7b2c337 added readme file
+e8ea9a9 (greeting) changed greeting in branch greeting
+e4fc60f Merge branch 'feature/uppercase'
+ba97d88 greeting commit 1
+ce2f4a7 file2 commit 1
+67d5dbf file1 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+README.md  file.txt  file1.txt  file2.txt  greeting.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls -la
+total 18
+drwxr-xr-x 1 syedk 197609  0 Jan 13 10:10 ./
+drwxr-xr-x 1 syedk 197609  0 Jan 13 10:05 ../
+drwxr-xr-x 1 syedk 197609  0 Jan 13 10:10 .git/
+-rw-r--r-- 1 syedk 197609 29 Jan 13 10:03 README.md
+-rw-r--r-- 1 syedk 197609  3 Jan 13 09:33 file.txt
+-rw-r--r-- 1 syedk 197609  7 Jan 13 09:49 file1.txt
+-rw-r--r-- 1 syedk 197609 16 Jan 13 10:03 file2.txt
+-rw-r--r-- 1 syedk 197609 13 Jan 13 10:10 greeting.txt
+-rw-r--r-- 1 syedk 197609 12 Jan 13 09:22 hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git show
+commit 7d94738e8ac6480e63fb929dbdf9226bdb7dd60c (HEAD -> master)
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 10:10:43 2022 +0530
+
+    Revert "Revert "greeting.txt changed to hello world""
+
+    This reverts commit c9fe36bf411880689e861f710559b2149237e2ee.
+
+diff --git a/greeting.txt b/greeting.txt
+index b74dca3..3b18e51 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +1 @@
+-hello , how are you?
++hello world
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git show 7b2c337
+commit 7b2c337eee04a5ffa0b9f750253ab2f5c657b508
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 09:54:45 2022 +0530
+
+    added readme file
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..87ad1c8
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++This repo is about practice

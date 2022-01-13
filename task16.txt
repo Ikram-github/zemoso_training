@@ -1,0 +1,145 @@
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+bar.txt  change.txt  file.txt  file1.txt  file2.txt  greeting.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo " hello world file ">file.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo "1">change.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add change.txt
+warning: LF will be replaced by CRLF in change.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+bar.txt  change.txt  file.txt  file1.txt  file2.txt  greeting.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   change.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline
+f34d19a (HEAD -> master) change 1
+77af18c Revert "added readme file"
+c632823 changed greeting in branch greeting
+b348818 added readme file
+3da6cb6 file1 commit 1
+ff9a025 greeting commit 1
+ce2f4a7 file2 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git stash
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+Saved working directory and index state WIP on master: f34d19a change 1
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git stash list
+stash@{0}: WIP on master: f34d19a change 1
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git stash apply
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   change.txt
+        modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo " there is a bug">bug.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add bug.txt
+warning: LF will be replaced by CRLF in bug.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit -m "bug found 1"
+[master ca93bca] bug found 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bug.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git stash apply
+error: Your local changes to the following files would be overwritten by merge:
+        change.txt
+        file.txt
+Please commit your changes or stash them before you merge.
+Aborting
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+bar.txt  change.txt  file1.txt  greeting.txt
+bug.txt  file.txt    file2.txt  hello.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git stash apply --index
+Unstaged changes after reset:
+M       change.txt
+M       file.txt
+error: Your local changes to the following files would be overwritten by merge:
+        change.txt
+        file.txt
+Please commit your changes or stash them before you merge.
+Aborting
+Index was not unstashed.
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git stash drop
+Dropped refs/stash@{0} (09cae882b358a59228787956aa8658e47520965d)
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline
+ca93bca (HEAD -> master) bug found 1
+f34d19a change 1
+77af18c Revert "added readme file"
+c632823 changed greeting in branch greeting
+b348818 added readme file
+3da6cb6 file1 commit 1
+ff9a025 greeting commit 1
+ce2f4a7 file2 commit 1
+aaa11b4 file.txt commit 1
+cd8005b second commit
+ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   change.txt
+        modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git stash list
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git reset --hard HEAD
+HEAD is now at ca93bca bug found 1
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean

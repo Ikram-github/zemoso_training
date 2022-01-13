@@ -1,0 +1,165 @@
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log -p
+commit af506aa4ca69185fd0a8f2233d150724ba5eb04e (HEAD -> master)
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 10:17:18 2022 +0530
+
+    Revert "added readme file"
+
+    This reverts commit 7b2c337eee04a5ffa0b9f750253ab2f5c657b508.
+
+diff --git a/README.md b/README.md
+deleted file mode 100644
+index 87ad1c8..0000000
+--- a/README.md
++++ /dev/null
+@@ -1 +0,0 @@
+-This repo is about practice
+
+commit 4b540be1559376ca71282442a7109246b996e2c9 (mybranch)
+Merge: 7b2c337 e8ea9a9
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 09:55:43 2022 +0530
+
+    Merge branch 'greeting'
+
+commit 7b2c337eee04a5ffa0b9f750253ab2f5c657b508
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 09:54:45 2022 +0530
+
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ echo " bar ">bar.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git add -A
+warning: LF will be replaced by CRLF in bar.txt.
+The file will have its original line endings in your working directory
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit --ammend
+error: unknown option `ammend'
+usage: git commit [<options>] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup [(amend|reword):]commit
+                          use autosquash formatted message to fixup or amend/reword specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    --trailer <trailer>   add custom trailer(s)
+    -s, --signoff         add a Signed-off-by trailer
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <mode>      how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit and commit-msg hooks
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --ahead-behind        compute full ahead/behind values
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit --amend
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to Unix format...
+[master 91d5361] Revert "added readme file"
+ Date: Thu Jan 13 10:17:18 2022 +0530
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ delete mode 100644 README.md
+ create mode 100644 bar.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log -p
+commit 91d5361156d8e91463209b8bf257b068b317d5a6 (HEAD -> master)
+Author: Ikram <khajaikramuddin.syed@zemosolabs.com>
+Date:   Thu Jan 13 10:17:18 2022 +0530
+
+    Revert "added readme file"
+
+    This reverts commit 7b2c337eee04a5ffa0b9f750253ab2f5c657b508.
+
+diff --git a/README.md b/README.md
+deleted file mode 100644
+index 87ad1c8..0000000
+--- a/README.md
++++ /dev/null
+@@ -1 +0,0 @@
+-This repo is about practice
+diff --git a/bar.txt b/bar.txt
+new file mode 100644
+index 0000000..6c46bf2
+--- /dev/null
++++ b/bar.txt
+@@ -0,0 +1 @@
++ bar
+
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git commit --amend
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/syedk/Desktop/git_kata_repo/.git/COMMIT_EDITMSG to Unix format...
+[master be407a1] Revert "added readme file"
+ Date: Thu Jan 13 10:17:18 2022 +0530
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ delete mode 100644 README.md
+ create mode 100644 bar.txt
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline --graph
+* be407a1 (HEAD -> master) Revert "added readme file"
+*   4b540be (mybranch) Merge branch 'greeting'
+|\
+| * e8ea9a9 (greeting) changed greeting in branch greeting
+* | 7b2c337 added readme file
+|/
+*   e4fc60f Merge branch 'feature/uppercase'
+|\
+| * ba97d88 greeting commit 1
+| * 67d5dbf file1 commit 1
+* | ce2f4a7 file2 commit 1
+|/
+* aaa11b4 file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ ls
+bar.txt  file.txt  file1.txt  file2.txt  greeting.txt  hello.txt

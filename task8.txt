@@ -1,0 +1,80 @@
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git branch
+  greeting
+* master
+  mybranch
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline --graph --all
+*   4b540be (HEAD -> master) Merge branch 'greeting'
+|\
+| * e8ea9a9 (greeting) changed greeting in branch greeting
+* | 7b2c337 added readme file
+|/
+*   e4fc60f Merge branch 'feature/uppercase'
+|\
+| * ba97d88 greeting commit 1
+| * 67d5dbf (mybranch) file1 commit 1
+* | ce2f4a7 file2 commit 1
+|/
+* aaa11b4 file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git checkout mybranch
+Switched to branch 'mybranch'
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git log --oneline --graph
+* 67d5dbf (HEAD -> mybranch) file1 commit 1
+* aaa11b4 file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git rebase master
+Successfully rebased and updated refs/heads/mybranch.
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git log --oneline --graph
+*   4b540be (HEAD -> mybranch, master) Merge branch 'greeting'
+|\
+| * e8ea9a9 (greeting) changed greeting in branch greeting
+* | 7b2c337 added readme file
+|/
+*   e4fc60f Merge branch 'feature/uppercase'
+|\
+| * ba97d88 greeting commit 1
+| * 67d5dbf file1 commit 1
+* | ce2f4a7 file2 commit 1
+|/
+* aaa11b4 file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (mybranch)
+$ git switch master
+Switched to branch 'master'
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git merge master mybranch
+Already up to date.
+
+syedk@IKRAM-IDEAPAD3 MINGW64 ~/Desktop/git_kata_repo (master)
+$ git log --oneline --graph
+*   4b540be (HEAD -> master, mybranch) Merge branch 'greeting'
+|\
+| * e8ea9a9 (greeting) changed greeting in branch greeting
+* | 7b2c337 added readme file
+|/
+*   e4fc60f Merge branch 'feature/uppercase'
+|\
+| * ba97d88 greeting commit 1
+| * 67d5dbf file1 commit 1
+* | ce2f4a7 file2 commit 1
+|/
+* aaa11b4 file.txt commit 1
+* cd8005b second commit
+* ed669b4 first commit
+
